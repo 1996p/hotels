@@ -1,0 +1,71 @@
+{% extends 'lagoona_auth_base.html' %}
+<!--{% load static %}-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Login</title>-->
+<!--    <link rel="stylesheet" href="{% static '/lagoona/css/login_style.css' %}">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="main-window">-->
+<!--        <div class="login-window">-->
+<!--            <img src="{% static 'lagoona/images/Layer%202%201.png' %}" class="hotel-image">-->
+<!--            <div class="login-window-right">-->
+<!--                <h1 class="title">Авторизация</h1>-->
+<!--                <form action="#" method="post" class="login-form">-->
+<!--                    <input type="text" placeholder="Login" class="input-data">-->
+<!--                    <input type="password" placeholder="Password" class="input-data">-->
+<!--                    <a href="#" class="forget-password">Забыли пароль?</a>-->
+<!--                    <p><input type="checkbox" class="policy-agree" id="check2"><label for="check2" class="policy-description">Я согласен с условиями какой-то хуеты</label></p>-->
+<!--                    <div class="buttons">-->
+<!--                        <a href="{% url 'register' %}" class="sign-up-link">Регистрация</a>-->
+<!--                        <button type="submit" class="send-data">Войти</button>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!--<div class="login-window-right">-->
+<!--                <h1 class="title">Авторизация</h1>-->
+<!--                <form action="#" method="post" class="login-form">-->
+<!--                    <input type="text" placeholder="Login" class="input-data">-->
+<!--                    <input type="password" placeholder="Password" class="input-data">-->
+<!--                    <a href="#" class="forget-password">Забыли пароль?</a>-->
+<!--                    <p><input type="checkbox" class="policy-agree" id="check2"><label for="check2" class="policy-description">Я согласен с условиями какой-то хуеты</label></p>-->
+<!--                    <div class="buttons">-->
+<!--                        <a href="{% url 'register' %}" class="sign-up-link">Регистрация</a>-->
+<!--                        <button type="submit" class="send-data">Войти</button>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </div>-->
+
+
+
+{% block content %}
+    <div class="login-window-right">
+        {% if request.user.is_authenticated %}
+            <h1 class="title">Вы уже авторизованы!</h1>
+        {% else %}
+            <h1 class="title">Авторизация</h1>
+            <form action="#" method="post" class="login-form">
+                {% csrf_token %}
+
+                {% for f in form %}
+                    {{ f }}
+                <div class="form-error">{{ f.errors }}</div>
+                {% endfor %}
+                <a href="#" class="forget-password">Забыли пароль?</a>
+                <div class="buttons">
+                    <a href="{% url 'register' %}" class="sign-up-link">Регистрация</a>
+                    <button type="submit" class="send-data">Войти</button>
+                </div>
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}

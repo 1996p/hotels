@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static '/lagoona/css/login_style.css' %}">
+</head>
+<body>
+    <div class="main-window">
+        <div class="login-window">
+            <img src="{% static 'lagoona/images/Layer%202%201.png' %}" class="hotel-image">
+            <div class="login-window-right">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

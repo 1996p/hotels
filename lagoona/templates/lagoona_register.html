@@ -1,0 +1,21 @@
+{% extends 'lagoona_auth_base.html' %}
+{% block content %}
+
+
+<h1 class="title" xmlns="http://www.w3.org/1999/html">Регистрация</h1>
+<form method="post" class="login-form">
+    {% csrf_token %}
+
+    {% for f in form %}
+        {% if f != form.policy_agree %}
+            {{ f }}
+            <div class="form-error"> {{ f.errors }}</div>
+        {% else %}
+            <p>{{ f }}<label class="policy-description" for="{{ f.id_for_label }}"> {{ f.label }}</label></p>
+        {% endif %}
+    {% endfor %}
+
+    <button type="submit" class="send-data register-btn">Зарегистрировться</button>
+</form>
+
+{% endblock %}

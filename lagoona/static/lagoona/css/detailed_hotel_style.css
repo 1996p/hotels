@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'Muller';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''),
+            url("fonts/MullerLight.woff") format("woff");
+            url("fonts/MullerLight.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Muller';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+            url("fonts/MullerRegular.woff") format("woff");
+            url("fonts/MullerRegular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Muller';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''),
+            url("fonts/MullerMedium.woff") format("woff");
+            url("fonts/MullerMedium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Muller';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+            url("fonts/MullerBold.woff") format("woff");
+            url("fonts/MullerBold.woff2") format("woff2");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+button {
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+}
+
+button:hover {
+    color: white;
+    background-color: #CC9933;
+}
+
+ul {
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+html {
+    font-family: Muller, sans-serif;
+    background-color:#e5e5e5 ;
+}
+
+.container {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}

@@ -1,0 +1,177 @@
+@font-face {
+    font-family: 'Muller';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''),
+            url("fonts/MullerLight.woff") format("woff");
+            url("fonts/MullerLight.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Muller';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+            url("fonts/MullerRegular.woff") format("woff");
+            url("fonts/MullerRegular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Muller';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''),
+            url("fonts/MullerMedium.woff") format("woff");
+            url("fonts/MullerMedium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Muller';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+            url("fonts/MullerBold.woff") format("woff");
+            url("fonts/MullerBold.woff2") format("woff2");
+}
+
+body {
+    background-color: #999999;
+    margin: 0;
+    font-family: Muller;
+}
+
+p {
+    display: flex;
+    align-items: flex-end;
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+
+.main-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-window {
+    display: flex;
+}
+
+.login-window-right {
+    padding: 35px;
+    background-color: white;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    flex-basis: 50%;
+    transform: translateX(-15px);
+}
+
+.title {
+    font-family: Muller;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-data {
+    font-family: Muller;
+    font-size: 16px;
+    line-height: 24px;
+    border: none;
+    border-bottom: 1px solid #666666;
+    width: 300px;
+}
+
+.username {
+    margin-bottom: 40px;
+}
+
+.last {
+    margin-bottom: 10px;
+}
+
+.forget-password {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    color: #CC9933;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.forget-password:hover {
+    color: #CC9975;
+    text-decoration: underline #CC9975;
+}
+
+.input-data:focus {
+    outline: none;
+    border-bottom: 2px solid #1c1c1c;
+}
+
+
+.policy-description {
+    color: #999999;
+    font-size: 14px;
+    font-weight: 300;
+    padding-left: 10px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.sign-up-link, .send-data {
+    flex-basis: 49%;
+}
+
+.sign-up-link {
+    text-decoration: none;
+    font-family: Muller;
+    font-size: 16px;
+    color: #CC9933;
+    padding: 10px 10px;
+    text-align: center;
+    border: 1px solid #CC9933;
+    border-radius: 15px;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.sign-up-link:hover {
+    background-color: #CC9933;
+    color: white;
+}
+
+.send-data {
+    background-color: #CC9933;
+    border: none;
+    border-radius: 15px;
+    font-family: Muller;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+}
+
+.send-data:hover {
+    border: 1px solid #CC9933;
+    background-color: white;
+    color: #CC9933;
+    cursor: pointer;
+}
+
+.hotel-image {
+    flex-basis: 50%;
+    size: inherit;
+}
+
+.register-btn {
+    padding: 10px;
+}

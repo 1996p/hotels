@@ -1,0 +1,89 @@
+{% load static %}
+{% load hotel_rating_filter %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title11</title>
+    <link rel="stylesheet" href="{% static 'lagoona/css/style.css' %}">
+</head>
+<body>
+<header>
+      <div class="container">
+        <div class="header-logo-container">
+{#          <img src="{% static 'lagoona/images/logo.svg' %}" alt="Лагуна - сеть отелей" class="header-logo">#}
+            <a href="/" class="header-logo" style='background-image: url(" {% static 'lagoona/images/logo.svg' %}")'></a>
+            <a href="tel:+74953225448" class="header-phone">+7 495 322 54 48</a>
+            {% if request.user.is_authenticated %}
+            <a href="/logout" class="header-personal-cab">Добро пожаловать, <strong>{{ request.user.username }}</strong></a>
+            {% else %}
+                <a href="{% url 'login' %}" class="header-personal-cab personal-cab-logo">Личный кабинет</a>
+            {% endif %}
+        </div>
+      </div>
+      <div class="container">
+          <form action="#" method="post" class="want-tour-form">
+              <ul class="form-inputs">
+                  <li class="form-item">
+                      <h6 class="form-item-title">Город вылета</h6>
+                      <select>
+                          <option class="select-item">Санкт-Петербург</option>
+                          <option class="select-item">Москва</option>
+                          <option class="select-item">Новосибирск</option>
+                          <option class="select-item">Томск</option>
+
+                      </select>
+                  </li>
+                  <li class="form-item">
+                      <h6 class="form-item-title">Cтрана прибытия</h6>
+                      <select>
+                          <option class="select-item">Австралия</option>
+                          <option class="select-item">Швеция</option>
+                          <option class="select-item">США</option>
+                      </select>
+                  </li>
+                  <li class="form-item">
+                      <h6 class="form-item-title">Дата прибытия</h6>
+                      <input type="date" class="form-input-data">
+                  </li>
+                  <li class="form-item">
+                      <h6 class="form-item-title">Ночей</h6>
+                      <input type="number" class="form-input-number" placeholder="0">
+                  </li>
+                  <li class="form-item">
+                      <h6 class="form-item-title">Туристы</h6>
+                      <input type="number" class="form-input-number" placeholder="0">
+                  </li>
+                  <li class="form-item">
+                      <button type="submit" class="find-hotel-btn">Найти</button>
+                  </li>
+              </ul>
+          </form>
+      </div>
+  </header>
+  <main>
+      <div class="container">
+        <h2 class="block-title">Наши предложения {{ ti }}</h2>
+          {% for hotel in hotels %}
+             <div class="hotel-card">
+                <div class="hotel-image-card" style='background-image: url("{{ hotel.image.url }}")'></div>
+                <div class="hotel-content-card">
+                    <div class="hotel-rate-block ">
+                        <h2 class="hotel-name-card">{{ hotel.name }}</h2>
+                        {{ hotel.rating|show_hotel_rating }}
+                        <span class="placement-price">от <strong> <span class="changed_price">{{ hotel.price }}</span> p </strong>/ ночь</span>
+                        <span class="hotel-city-card">{{ hotel.city }}, {{ hotel.country }}</span>
+                    </div>
+                </div>
+                 <div class="hotel-description-card">
+                     {{ hotel.short_description | truncatechars:370 }}
+                     <a href="{{ hotel.get_absolute_url }}" class="hotel-link">Номера</a>
+                 </div>
+             </div>
+          {% endfor %}
+      </div>
+  </main>
+<script defer src="{% static 'lagoona/js/script.js' %}"></script>
+<script defer src="{% static 'lagoona/js/all_hotels_script.js' %}"></script>
+</body>
+</html>
