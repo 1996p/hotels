@@ -11,25 +11,12 @@ from .forms import *
 
 
 
-# def all_hotel_list(request):
-#     first_hotel = Hotel.objects.all()
-#     return render(request, 'lagoona_all_hotels.html', {'hotels': first_hotel})
 
 class AllHotelsList(ListView):
     model = Hotel
     queryset = Hotel.objects.all()
     template_name = 'lagoona_all_hotels.html'
     context_object_name = 'hotels'
-
-    # def dispatch(self, request, *args, **kwargs):
-    #     print('hi there')
-    #     self.some = '1337'
-    #     return super().dispatch(request, *args, **kwargs)
-
-    # def get_context_data(self, *, object_list=None, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['ti'] = self.some
-    #     return context
 
 def test(request, slug):
     first_hotel = Hotel.objects.get(slug=slug)
